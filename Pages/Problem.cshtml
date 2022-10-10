@@ -13,8 +13,14 @@
     <input type="number" class="problem-answer" id="answer">
 </div>
 <div class="d-flex justify-content-center flex-column">
-    <button type="button" class="button--check" onclick="check_answer(@res)">Перевірити</button>
-    <p id="cans"></p>
+    <p id="res_statement"></p>
+    <div id="btn-check">
+        <button type="button" class="button--check" onclick="check_answer(@res)">Перевірити</button>
+    </div>
+    <div hidden id="btn-next">
+        <button type="button" class="button--next" onclick="next_problem()">Далі</button>
+    </div>
+    
 </div>
 
 <script src="./js/problem_script.js"></script>

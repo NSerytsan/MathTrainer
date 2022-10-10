@@ -1,23 +1,46 @@
-﻿var p_left = document.getElementById("problem-number").value;
+﻿
 var checked = false;
 function start() {
-    alert("Починаймо!");
-    window.open("https://localhost:7228/Problem", "_parent");
+    var p_left = document.getElementById("problem-number").value;
+    if (isNaN(p_left)) {
+        alert("Введіть кількість прикладів");
+    }
+    else if (!p_left) {
+        alert("Введіть кількість прикладів");
+    }
+    else {
+        alert("Починаймо!");
+        window.open("/Problem", "_blank");
+    }
+    
 }
 function check_answer(r) {
-    checked = false;
+    
     var num = document.getElementById("answer").value;
-    var res = r;
 
-    if (num == res) {
-        alert("Вірно");
-        checked = true;
-    } else {
-        alert("Помилка");
-        checked = true;
+    if (isNaN(num)) {
+        alert("Введіть відповідь");
     }
+    else if (!num) {
+        alert("Введіть відповідь");
+    }
+    else
+    {   
+        var res = r;
+        var statement;
 
-    if (checked == true && p_left > 0) {
-        window.open("https://localhost:7228/Problem", "_parent");
-    }
+        if (num == res) {
+            statement = "Вірно";
+        }
+        else {
+            statement = "Помилка. Правильна відповідь " + res;
+        }
+
+        document.getElementById("res_statement").innerHTML = statement;
+        document.getElementById("btn-check").style.visibility = "hidden";
+        document.getElementById("btn-next").style.visibility = ""; 
+    } 
+}
+function next_problem() {
+    alert("Далі" + p_left);
 }
