@@ -1,0 +1,21 @@
+﻿@page
+@model MathTrainer.Pages.ProblemModel
+@{
+    ViewData["Titile"] = "Problem";
+}
+@{
+    int a = 9;
+    int b = 8;
+    int res = a + b;
+}
+<div class="problem d-flex justify-content-center flex-row">
+    <div class="problem-body">@a+@b=</div>
+    <input type="number" class="problem-answer" id="answer">
+</div>
+<div class="d-flex justify-content-center flex-column">
+    <button type="button" class="button--check" onclick="check_answer(@res)">Перевірити</button>
+    <p id="cans"></p>
+</div>
+
+<script src="./js/problem_script.js"></script>
+

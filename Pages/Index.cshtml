@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="d-flex align-content-center flex-column">
+    <div class="input-group">
+        <input type="radio" id="first_arg_7" value=7>
+        <label for="first_arg_7"> 7</label><br>
+        <input type="radio" id="first_arg_8" value=8>
+        <label for="first_arg_8"> 8</label><br>
+        <input type="radio" id="first_arg_9" value=9>
+        <label for="first_arg_8"> 9</label><br>
+
+        <label for="problem-number"> Кількість прикладів</label>
+        <input type="number" id="problem-number" />
+    </div>
+    <button type="button" class="button--start" onclick="start()">Почати</button>
+</div>
+<script src="~/js/problem_script.js"></script>
