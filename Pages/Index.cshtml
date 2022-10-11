@@ -5,17 +5,19 @@
 }
 
 <div class="d-flex align-content-center flex-column">
-    <div class="input-group">
-        <input type="radio" id="first_arg_7" value=7>
-        <label for="first_arg_7"> 7</label><br>
-        <input type="radio" id="first_arg_8" value=8>
-        <label for="first_arg_8"> 8</label><br>
-        <input type="radio" id="first_arg_9" value=9>
-        <label for="first_arg_8"> 9</label><br>
-
-        <label for="problem-number"> Кількість прикладів</label>
+    <form action="Problem.cshtml">
+    <div class="input-group d-flex flex-column">
+        <label for="argument">Число</label>
+        <input type="number" id="argument" min="1"/>
+     
+        <label for="problem-number">Кількість прикладів</label>
         <input type="number" id="problem-number" min="1"/>
+
+        <label for="in-order">По порядку</label>
+        <input type="checkbox" id="in-order>" />
     </div>
+    </form>
+    <br />
     <button type="button" class="button--start" onclick="start()">Почати</button>
 </div>
 <script src="~/js/problem_script.js"></script>
