@@ -4,7 +4,7 @@ localStorage.cb = cb.checked;
 function start() {
     var p_left = parseInt(document.getElementById("problem-number").value);
     var arg = document.getElementById("argument").value;
-    sessionStorage.pr_left = p_left;
+    
 
 
     if (!cb.checked) {
@@ -19,6 +19,7 @@ function start() {
         else if (!arg) {
             alert("Введіть число");
         } else {
+            sessionStorage.pr_left = p_left;
             localStorage.first_value = arg;
             alert("Починаймо!");
             window.open("/Problem", "_blank");
@@ -68,21 +69,21 @@ function check_answer() {
 }
 
 function next_problem() {
-    if (localStorage.getItem("cb") == "false") {
+    if (localStorage.getItem("cb") == "true") {
         if (Number(sessionStorage.getItem("i")) < 10) {
-            alert("Далі false");
+            alert("Далі по порядку t");
             window.close();
             window.open("/Problem", "_blank");
         } else {
-            alert("Кінець tf");
+            alert("Кінець порядку t");
         }
-    } else if (localStorage.getItem("cb") == "true") {
-        if (Number(sessionStorage.getItem("pr_left")) > 0) {
-            alert("Далі true");
+    } else if (localStorage.getItem("cb") == "false") {
+        if (pr_count() > 0) {
+            alert("Далі рандомно f");
             window.close();
             window.open("/Problem", "_blank");
         } else {
-            alert("Kінець t");
+            alert("Kінець рандомно f");
         }
     }
     
@@ -91,10 +92,10 @@ function next_problem() {
 
 function get_arguments() {  
     document.getElementById("first-arg").innerHTML = localStorage.getItem("first_value");
-    if (localStorage.getItem("cb") == "false") {
+    if (localStorage.getItem("cb") == "true") {
         second_value();
     }
-    else if (localStorage.getItem("cb") == "true") {
+    else if (localStorage.getItem("cb") == "false") {
         document.getElementById("second-arg").innerHTML = get_random_arg();
     }
 }
@@ -106,6 +107,7 @@ function second_value() {
     let counter = Number(sessionStorage.getItem("i"))
     sessionStorage.setItem("i", counter + 1);
     document.getElementById("second-arg").innerHTML = sessionStorage.getItem("i");
+    //return sessionStorage.getItem("i");
 }
 
 function order_box() {
@@ -126,6 +128,7 @@ function pr_count() {
     if (sessionStorage.getItem("pr_left") == null)
         sessionStorage.setItem("pr_left", "0");
 
-    let pr_counter = Number(sessionStorage.getItem("pr_left"))
+    let pr_counter = Number(sessionStorage.getItem("pr_left"));
     sessionStorage.setItem("pr_left", pr_counter - 1);
+    return Number(sessionStorage.getItem("pr_left"));
 }
