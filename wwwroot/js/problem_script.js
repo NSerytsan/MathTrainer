@@ -1,8 +1,6 @@
-﻿let i = 1;
-localStorage.setItem("_i", i);
-
+﻿
 function start() {
-    var p_left = parseInt(document.getElementById("problem-number").value);
+    //var p_left = parseInt(document.getElementById("problem-number").value);
     var arg = document.getElementById("argument").value;
 
     //var in_order = document.getElementById("in-order").value;
@@ -28,7 +26,7 @@ function start() {
         localStorage.first_value = arg;
         alert("Починаймо!");
         window.open("/Problem", "_blank");
-        p_left = p_left - 1;
+        //p_left = p_left - 1;
     }
 }
 
@@ -58,15 +56,17 @@ function check_answer() {
 
         document.getElementById("res_statement").innerHTML = statement;
         document.getElementById("btn-check").style.visibility = "hidden";
-        document.getElementById("btn-next").style.visibility = "visible";
+        document.getElementById("btn-next").style.display = "block";
     } 
 }
 
 function next_problem() {
-    alert("Далі");
-    i = 2;
-    localStorage.setItem("_i", 2);
-    window.open("/Problem", "_blank");
+    if (Number(sessionStorage.getItem("i")) < 10) {
+        alert("Далі");
+        window.open("/Problem", "_blank");
+    } else {
+        alert("Кінець");
+    }
     
 }
 
@@ -74,5 +74,14 @@ function get_arguments() {
     alert("get_argumen func");
     document.getElementById("first-arg").innerHTML = localStorage.getItem("first_value");
     //document.getElementById("second-arg").innerHTML = localStorage.getItem("_i");
-    document.getElementById("second-arg").innerHTML = 1;
+    second_value();
+}
+
+function second_value() {
+    if (sessionStorage.getItem("i") == null)
+        sessionStorage.setItem("i", "0");
+
+    let counter = Number(sessionStorage.getItem("i"))
+    sessionStorage.setItem("i", counter + 1);
+    document.getElementById("second-arg").innerHTML = sessionStorage.getItem("i")
 }

@@ -3,20 +3,23 @@
 @{
     ViewData["Titile"] = "Problem";
 }
-<body onload="get_arguments()">
+<body onload="get_arguments()" onunload="sessionStorage.clear()">
 <div class="problem d-flex justify-content-center flex-row">
     <div class="problem-body d-flex flex-row"><p id="first-arg"></p>+<p id="second-arg"></p>=</div>
     <input type="number" class="problem-answer" id="answer">
 </div>
 <div class="d-flex justify-content-center flex-column">
     <p id="res_statement"></p>
-    <div id="btn-check">
-        <button type="button" class="button--check" onclick="check_answer()">Перевірити</button>
+    <div class="d-flex flex-row">
+
+        <div id="btn-check">
+            <button type="button" class="button--check" onclick="check_answer()">Перевірити</button>
+        </div>
+        <div style="display:none" id="btn-next">
+            <button type="button" class="button--next" onclick="next_problem()">Далі</button>
+        </div>
+
     </div>
-    <div id="btn-next">
-        <button type="button" class="button--next" onclick="next_problem()">Далі</button>
-    </div>
-    
 </div>
 </body>
 
