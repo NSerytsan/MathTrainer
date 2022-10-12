@@ -1,30 +1,37 @@
-﻿
+﻿var cb = document.querySelector('#in-order');
+localStorage.cb = cb.checked;
+
 function start() {
-    //var p_left = parseInt(document.getElementById("problem-number").value);
+    var p_left = parseInt(document.getElementById("problem-number").value);
     var arg = document.getElementById("argument").value;
+    sessionStorage.pr_left = p_left;
 
-    //var in_order = document.getElementById("in-order").value;
-    //if (in_order == true) {
-    //    alert("checked");
-    //} else {
 
-    //}
-
-    //if (isNaN(p_left)) {
-    //    alert("Введіть кількість прикладів");
-    //}
-    //else if (!p_left) {
-    //    alert("Введіть кількість прикладів");
-    //}
-    if (isNaN(arg)) {
+    if (!cb.checked) {
+        if (isNaN(p_left)) {
+            alert("Введіть кількість прикладів");
+        }
+        else if (!p_left) {
+            alert("Введіть кількість прикладів");
+        } else if (isNaN(arg)) {
+            alert("Введіть число");
+        }
+        else if (!arg) {
+            alert("Введіть число");
+        } else {
+            localStorage.first_value = arg;
+            alert("Починаймо!");
+            window.open("/Problem", "_blank");
+        }
+    }
+    else if (isNaN(arg)) {
         alert("Введіть число");
     }
     else if (!arg) {
         alert("Введіть число");
     }
     else {
-        localStorage.first_value = arg;
-        alert("Починаймо!");
+        alert("Починаймо по порядку!");
         window.open("/Problem", "_blank");
         //p_left = p_left - 1;
     }
@@ -61,20 +68,35 @@ function check_answer() {
 }
 
 function next_problem() {
-    if (Number(sessionStorage.getItem("i")) < 10) {
-        alert("Далі");
-        window.close();
-        window.open("/Problem", "_blank");  
-    } else {
-        alert("Кінець");
+    if (localStorage.getItem("cb") == "false") {
+        if (Number(sessionStorage.getItem("i")) < 10) {
+            alert("Далі false");
+            window.close();
+            window.open("/Problem", "_blank");
+        } else {
+            alert("Кінець tf");
+        }
+    } else if (localStorage.getItem("cb") == "true") {
+        if (Number(sessionStorage.getItem("pr_left")) > 0) {
+            alert("Далі true");
+            window.close();
+            window.open("/Problem", "_blank");
+        } else {
+            alert("Kінець t");
+        }
     }
+    
     
 }
 
 function get_arguments() {  
     document.getElementById("first-arg").innerHTML = localStorage.getItem("first_value");
-    //document.getElementById("second-arg").innerHTML = localStorage.getItem("_i");
-    second_value();
+    if (localStorage.getItem("cb") == "false") {
+        second_value();
+    }
+    else if (localStorage.getItem("cb") == "true") {
+        document.getElementById("second-arg").innerHTML = get_random_arg();
+    }
 }
 
 function second_value() {
@@ -83,5 +105,27 @@ function second_value() {
 
     let counter = Number(sessionStorage.getItem("i"))
     sessionStorage.setItem("i", counter + 1);
-    document.getElementById("second-arg").innerHTML = sessionStorage.getItem("i")
+    document.getElementById("second-arg").innerHTML = sessionStorage.getItem("i");
+}
+
+function order_box() {
+    if (cb.checked == true) {
+        document.getElementById("p-num").style.display = "none";
+    } else if (cb.checked == false) {
+        document.getElementById("p-num").style.display = "block";
+    }
+}
+
+function get_random_arg() {
+    min = Math.ceil(1);
+    max = Math.floor(11);
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+function pr_count() {
+    if (sessionStorage.getItem("pr_left") == null)
+        sessionStorage.setItem("pr_left", "0");
+
+    let pr_counter = Number(sessionStorage.getItem("pr_left"))
+    sessionStorage.setItem("pr_left", pr_counter - 1);
 }

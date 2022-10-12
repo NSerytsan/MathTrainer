@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+ 
+.problem-body{
+    font-size: 64px;
+    color:orangered;
+}
+.problem-answer{
+    font-size: 62px;
+    color: red;
+    width: 100px;
+}
