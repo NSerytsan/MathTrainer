@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\js\uttilities.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\uttilities.js" />
+  </ItemGroup>
+
 </Project>

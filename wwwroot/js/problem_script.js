@@ -132,3 +132,4 @@ function pr_count() {
     sessionStorage.setItem("pr_left", pr_counter - 1);
     return Number(sessionStorage.getItem("pr_left"));
 }
+
