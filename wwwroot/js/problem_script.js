@@ -79,11 +79,11 @@ function next_problem() {
         }
     } else if (localStorage.getItem("cb") == "false") {
         if (pr_count() > 0) {
-            alert("Далі рандомно f");
+            /*alert("Далі рандомно f");*/
             window.close();
             window.open("/Problem", "_blank");
         } else {
-            alert("Kінець рандомно f");
+            alert("Kінець");
         }
     }
     
