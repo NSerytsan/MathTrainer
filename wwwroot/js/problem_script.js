@@ -2,7 +2,7 @@
 localStorage.setItem("_i", i);
 
 function start() {
-    var p_left = document.getElementById("problem-number").value;
+    var p_left = parseInt(document.getElementById("problem-number").value);
     var arg = document.getElementById("argument").value;
 
     //var in_order = document.getElementById("in-order").value;
@@ -12,20 +12,20 @@ function start() {
 
     //}
 
-    if (isNaN(p_left)) {
-        alert("Введіть кількість прикладів");
-    }
-    else if (!p_left) {
-        alert("Введіть кількість прикладів");
-    }
-    else if (isNaN(arg)) {
+    //if (isNaN(p_left)) {
+    //    alert("Введіть кількість прикладів");
+    //}
+    //else if (!p_left) {
+    //    alert("Введіть кількість прикладів");
+    //}
+    if (isNaN(arg)) {
         alert("Введіть число");
     }
     else if (!arg) {
         alert("Введіть число");
     }
     else {
-        localStorage.setItem("first_value", arg);
+        localStorage.first_value = arg;
         alert("Починаймо!");
         window.open("/Problem", "_blank");
         p_left = p_left - 1;
@@ -35,8 +35,8 @@ function start() {
 function check_answer() {
 
     var ares = document.getElementById("answer").value;
-    var first = document.getElementById("first-arg").value;
-    var second = document.getElementById("second-arg").value;
+    var first = parseInt(document.getElementById("first-arg").innerHTML);
+    var second = parseInt(document.getElementById("second-arg").innerHTML);
     var res = first + second;
 
     if (isNaN(ares)) {
@@ -53,7 +53,7 @@ function check_answer() {
             statement = "Вірно";
         }
         else {
-            statement = "Помилка. Правильна відповідь " + first;
+            statement = "Помилка. Правильна відповідь " + res;
         }
 
         document.getElementById("res_statement").innerHTML = statement;
