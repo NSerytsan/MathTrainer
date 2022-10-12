@@ -63,15 +63,15 @@ function check_answer() {
 function next_problem() {
     if (Number(sessionStorage.getItem("i")) < 10) {
         alert("Далі");
-        window.open("/Problem", "_blank");
+        window.close();
+        window.open("/Problem", "_blank");  
     } else {
         alert("Кінець");
     }
     
 }
 
-function get_arguments() {
-    alert("get_argumen func");
+function get_arguments() {  
     document.getElementById("first-arg").innerHTML = localStorage.getItem("first_value");
     //document.getElementById("second-arg").innerHTML = localStorage.getItem("_i");
     second_value();
