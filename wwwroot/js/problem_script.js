@@ -78,9 +78,11 @@ function next_problem() {
         }
     } else if (localStorage.getItem("cb") == "false") {
         if (pr_count() > 0) {
+            document.getElementById("btn-home").style.display = "block";
             /*alert("Далі рандомно f");*/
             window.open("/Problem", "_self");
         } else {
+            document.getElementById("btn-home").style.display = "block";
             alert("Kінець");
             sessionStorage.clear()
         }

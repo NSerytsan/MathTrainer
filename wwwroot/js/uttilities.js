@@ -5,3 +5,7 @@ input.addEventListener("keypress", function (event) {
         document.getElementById("b-check").click();
     }
 }); 
+
+function go_home() {
+    window.open("/Index", "_self")
+}
