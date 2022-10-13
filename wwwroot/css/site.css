@@ -17,6 +17,9 @@ body {
   margin-bottom: 60px;
 }
  
+.problem-number {
+    margin-top: 5px;
+}
 .problem-body{
     font-size: 64px;
     color:orangered;

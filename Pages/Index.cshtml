@@ -11,14 +11,14 @@
         <label for="argument">Число</label>
         <input type="number" id="argument" min="1"/>
 
-        <div class="d-flex flex-row">
-            <label  for="in-order">По порядку</label>
-            <input  type="checkbox" id="in-order" onchange="order_box()"/>
+        <div hidden class="d-flex flex-row">
+            <label hidden for="in-order">По порядку</label>
+            <input hidden type="checkbox" id="in-order" onchange="order_box()"/>
         </div>
 
         <div id="p-num">
             <label for="problem-number">Кількість прикладів</label>
-            <input type="number" id="problem-number" min="1"/>
+            <input type="number" class="problem-number" id="problem-number" min="1"/>
         </div>
     </div>
     </form>

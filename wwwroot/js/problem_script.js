@@ -61,6 +61,7 @@ function check_answer() {
             statement = "Помилка. Правильна відповідь " + res;
         }
 
+        document.getElementById("answer").disabled = "disabled";
         document.getElementById("res_statement").innerHTML = statement;
         document.getElementById("btn-check").style.visibility = "hidden";
         document.getElementById("btn-next").style.display = "block";
@@ -78,11 +79,11 @@ function next_problem() {
         }
     } else if (localStorage.getItem("cb") == "false") {
         if (pr_count() > 0) {
-            document.getElementById("btn-home").style.display = "block";
+            //document.getElementById("btn-home").style.display = "block";
             /*alert("Далі рандомно f");*/
             window.open("/Problem", "_self");
         } else {
-            document.getElementById("btn-home").style.display = "block";
+            //document.getElementById("btn-home").style.display = "block";
             alert("Kінець");
             sessionStorage.clear()
         }
@@ -133,4 +134,3 @@ function pr_count() {
     localStorage.setItem("pr_left", pr_counter - 1);
     return Number(localStorage.getItem("pr_left"));
 }
-
