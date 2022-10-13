@@ -1,5 +1,5 @@
 ﻿var cb = document.querySelector('#in-order');
-localStorage.cb = cb.checked;
+localStorage._cb = cb.checked;
 
 function start() {
     var p_left = parseInt(document.getElementById("problem-number").value);
@@ -32,6 +32,7 @@ function start() {
         alert("Введіть число");
     }
     else {
+        localStorage.first_value = arg;
         alert("Починаймо по порядку!");
         window.open("/Problem", "_top");
     }
@@ -69,15 +70,15 @@ function check_answer() {
 }
 
 function next_problem() {
-    if (localStorage.getItem("cb") == "true") {
+    if (localStorage.getItem("_cb") == "true") {
         if (Number(localStorage.getItem("i")) < 10) {
             alert("Далі по порядку t");
             window.open("/Problem", "_self");
         } else {
             alert("Кінець порядку t");
-            sessionStorage.clear()
+            localStorage.clear()
         }
-    } else if (localStorage.getItem("cb") == "false") {
+    } else if (localStorage.getItem("_cb") == "false") {
         if (pr_count() > 0) {
             //document.getElementById("btn-home").style.display = "block";
             /*alert("Далі рандомно f");*/
@@ -85,7 +86,7 @@ function next_problem() {
         } else {
             //document.getElementById("btn-home").style.display = "block";
             alert("Kінець");
-            sessionStorage.clear()
+            localStorage.clear()
         }
     }
     
@@ -94,10 +95,10 @@ function next_problem() {
 
 function get_arguments() {  
     document.getElementById("first-arg").innerHTML = localStorage.getItem("first_value");
-    if (localStorage.getItem("cb") == "true") {
+    if (localStorage.getItem("_cb") == "true") {
         second_value();
     }
-    else if (localStorage.getItem("cb") == "false") {
+    else if (localStorage.getItem("_cb") == "false") {
         document.getElementById("second-arg").innerHTML = get_random_arg();
     }
 }
