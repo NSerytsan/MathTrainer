@@ -7,7 +7,7 @@ function start() {
     
 
 
-    if (!cb.checked) {
+    if (cb.checked == false) {
         if (isNaN(p_left)) {
             alert("Введіть кількість прикладів");
         }
@@ -19,10 +19,10 @@ function start() {
         else if (!arg) {
             alert("Введіть число");
         } else {
-            sessionStorage.pr_left = p_left;
+            localStorage.pr_left = p_left;
             localStorage.first_value = arg;
             alert("Починаймо!");
-            window.open("/Problem", "_blank");
+            window.open("/Problem", "_top");
         }
     }
     else if (isNaN(arg)) {
@@ -33,8 +33,7 @@ function start() {
     }
     else {
         alert("Починаймо по порядку!");
-        window.open("/Problem", "_blank");
-        //p_left = p_left - 1;
+        window.open("/Problem", "_top");
     }
 }
 
@@ -70,20 +69,20 @@ function check_answer() {
 
 function next_problem() {
     if (localStorage.getItem("cb") == "true") {
-        if (Number(sessionStorage.getItem("i")) < 10) {
+        if (Number(localStorage.getItem("i")) < 10) {
             alert("Далі по порядку t");
-            window.close();
-            window.open("/Problem", "_blank");
+            window.open("/Problem", "_self");
         } else {
             alert("Кінець порядку t");
+            sessionStorage.clear()
         }
     } else if (localStorage.getItem("cb") == "false") {
         if (pr_count() > 0) {
             /*alert("Далі рандомно f");*/
-            window.close();
-            window.open("/Problem", "_blank");
+            window.open("/Problem", "_self");
         } else {
             alert("Kінець");
+            sessionStorage.clear()
         }
     }
     
@@ -101,12 +100,12 @@ function get_arguments() {
 }
 
 function second_value() {
-    if (sessionStorage.getItem("i") == null)
-        sessionStorage.setItem("i", "0");
+    if (localStorage.getItem("i") == null)
+        localStorage.setItem("i", "0");
 
-    let counter = Number(sessionStorage.getItem("i"))
-    sessionStorage.setItem("i", counter + 1);
-    document.getElementById("second-arg").innerHTML = sessionStorage.getItem("i");
+    let counter = Number(localStorage.getItem("i"))
+    localStorage.setItem("i", counter + 1);
+    document.getElementById("second-arg").innerHTML = localStorage.getItem("i");
     //return sessionStorage.getItem("i");
 }
 
@@ -125,11 +124,11 @@ function get_random_arg() {
 }
 
 function pr_count() {
-    if (sessionStorage.getItem("pr_left") == null)
-        sessionStorage.setItem("pr_left", "0");
+    if (localStorage.getItem("pr_left") == null)
+        localStorage.setItem("pr_left", "0");
 
-    let pr_counter = Number(sessionStorage.getItem("pr_left"));
-    sessionStorage.setItem("pr_left", pr_counter - 1);
-    return Number(sessionStorage.getItem("pr_left"));
+    let pr_counter = Number(localStorage.getItem("pr_left"));
+    localStorage.setItem("pr_left", pr_counter - 1);
+    return Number(localStorage.getItem("pr_left"));
 }
 

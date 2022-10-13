@@ -7,11 +7,14 @@
 <div class="d-flex align-content-center flex-column">
     <form action="Problem.cshtml">
     <div class="input-group d-flex flex-column">
+        
         <label for="argument">Число</label>
         <input type="number" id="argument" min="1"/>
 
-        <label hidden for="in-order">По порядку</label>
-        <input hidden type="checkbox" id="in-order" onchange="order_box()"/>
+        <div class="d-flex flex-row">
+            <label  for="in-order">По порядку</label>
+            <input  type="checkbox" id="in-order" onchange="order_box()"/>
+        </div>
 
         <div id="p-num">
             <label for="problem-number">Кількість прикладів</label>

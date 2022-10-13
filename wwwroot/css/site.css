@@ -22,7 +22,14 @@ body {
     color:orangered;
 }
 .problem-answer{
-    font-size: 62px;
+    font-size: 64px;
     color: red;
     width: 100px;
+    height: 95px;
+}
+
+.res-statement{
+    font-size: 32px;
+    padding-top: 20px;
+    font-weight: 500;
 }

@@ -4,4 +4,4 @@ input.addEventListener("keypress", function (event) {
         event.preventDefault();
         document.getElementById("b-check").click();
     }
-});
+}); 

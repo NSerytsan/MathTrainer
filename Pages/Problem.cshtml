@@ -8,14 +8,14 @@
     <div class="problem-body d-flex flex-row"><p id="first-arg"></p>+<p id="second-arg"></p>=</div>
     <input type="number" class="problem-answer" id="answer">
 </div>
-<div class="d-flex justify-content-center flex-column">
-    <p id="res_statement"></p>
-    <div class="d-flex flex-row">
+<div class="d-flex justify-content-center flex-column d-grid gap-5">
+    <p class="d-flex justify-content-center res-statement" id="res_statement"></p>
+    <div class="d-flex flex-column">
 
-        <div id="btn-check">
+        <div class="d-flex justify-content-center" id="btn-check">
             <button id="b-check" type="button" class="button--check" onclick="check_answer()">Перевірити</button>
         </div>
-        <div style="display:none" id="btn-next">
+        <div style="display:none" class="mx-auto" id="btn-next">
             <button id="b-next" type="button" class="button--next" onclick="next_problem()">Далі</button>
         </div>
 
