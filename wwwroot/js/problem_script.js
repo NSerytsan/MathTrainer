@@ -38,6 +38,8 @@ function start() {
         //alert("Починаймо по порядку!");
         window.open("/Problem", "_top");
     }
+
+
 }
 
 function check_answer() {
