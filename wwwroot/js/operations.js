@@ -49,6 +49,7 @@ function start_minus() {
         localStorage.first_value = arg;
         //alert("Починаймо!");
         window.open("/ProblemMinus", "_top");
+        start_timer();
     }
 }
 

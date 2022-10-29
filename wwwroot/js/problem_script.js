@@ -25,6 +25,7 @@ function start() {
             localStorage.first_value = arg;
             //alert("Починаймо!");
             window.open("/Problem", "_top");
+            start_timer();
         }
     }
     else if (isNaN(arg)) {

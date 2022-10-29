@@ -4,7 +4,7 @@ const start_btn_el = document.getElementById("start-btn");
 let seconds = 0;
 let interval = null;
 
-start_btn_el.addEventListener('click', start_timer);
+//start_btn_el.addEventListener('click', start_timer);
 
 function timer() {
     seconds++;
@@ -25,4 +25,15 @@ function start_timer() {
         return;
     }
     interval = setInterval(timer, 1000);
+}
+
+function stop_timer() {
+    clearInterval(interval);
+    interval = null;
+}
+
+function reset_timer() {
+    stop_timer();
+    seconds = 0;
+    timer_el.innerText = '00:00:00';
 }
