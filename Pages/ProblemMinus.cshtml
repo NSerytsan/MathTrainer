@@ -1,0 +1,44 @@
+﻿@page
+@model MathTrainer.Pages.ProblemMinusModel
+@{
+    ViewData["Titile"] = "Problem";
+}
+
+<body onload="get_arguments()" onunload="sessionStorage.clear()">
+    <div class="problem d-flex justify-content-center flex-row">
+        <div class="problem-body d-flex flex-row"><p id="first-arg"></p>-<p id="second-arg"></p>=</div>
+        <input type="number" class="problem-answer" id="answer">
+    </div>
+    <div class="d-flex justify-content-center flex-column d-grid gap-5">
+        <p class="d-flex justify-content-center res-statement" id="res_statement"></p>
+        <div class="d-flex flex-column">
+
+            <div class="mx-auto" id="btn-check">
+                <button id="b-check" type="button" class="button--check" onclick="check_answer_m()">Перевірити</button>
+            </div>
+            <div style="display:none" class="mx-auto" id="btn-next">
+                <button id="b-next" type="button" class="button--next" onclick="next_problem_m()">Далі</button>
+            </div>
+            <div style="display:none" class="mx-auto" id="btn-home">
+                <button id="b-home" type="button" class="button--home" onclick="go_home()">На головну</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="~/js/problem_script.js"></script>
+<script src="~/js/operations.js"></script>
+<script>
+    var input = document.getElementById("answer");
+    input.addEventListener("keypress", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            document.getElementById("b-check").click();
+        }
+    });
+
+    function go_home() {
+        window.open("/Index", "_self")
+    }
+</script>

@@ -44,3 +44,8 @@ body {
 .button--next{
     width: 100px;
 }
+
+.arg-radio{
+    margin-right: 10px;
+    margin-left: 3px;
+}

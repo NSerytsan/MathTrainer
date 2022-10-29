@@ -10,6 +10,39 @@
         
         <label for="argument">Число</label>
         <input type="number" id="argument" min="1"/>
+        <div class="operations">
+            <input type="radio" id="plus_radio" value="+" name="operations" checked="true"/>
+            <label for="plus_radio">+</label>
+            <input type="radio" id="minus_radio" value="-" name="operations"/>   
+            <label for="minus_radio">-</label>
+            
+            <p id="output"></p>
+        </div>
+
+        @*<div class="d-flex flex-row">
+            <label for="num_1">1</label>
+            <input type="checkbox" id="num_1" name="f_argument" value="1" class="arg-radio"/>
+            <label for="num_2">2</label>
+            <input type="checkbox" id="num_2" name="f_argument" value="2" class="arg-radio"/>
+            <label for="num_3">3</label>
+            <input type="checkbox" id="num_3" name="f_argument" value="3" class="arg-radio"/>
+            <label for="num_4">4</label>
+            <input type="checkbox" id="num_4" name="f_argument" value="4" class="arg-radio"/>
+            <label for="num_5">5</label>
+            <input type="checkbox" id="num_5" name="f_argument" value="5" class="arg-radio"/>
+            <label for="num_6">6</label>
+            <input type="checkbox" id="num_6" name="f_argument" value="6" class="arg-radio"/>
+            <label for="num_7">7</label>
+            <input type="checkbox" id="num_7" name="f_argument" value="7" class="arg-radio"/>
+            <label for="num_8">8</label>
+            <input type="checkbox" id="num_8" name="f_argument" value="8" class="arg-radio"/>
+            <label for="num_9">9</label>
+            <input type="checkbox" id="num_9" name="f_argument" value="9" class="arg-radio"/>
+            <label for="num_10">10</label>
+            <input type="checkbox" id="num_10" name="f_argument" value="10" class="arg-radio"/>
+        </div>*@
+
+        
 
         <div hidden class="d-flex flex-row">
             <label hidden for="in-order">По порядку</label>
@@ -23,6 +56,9 @@
     </div>
     </form>
     <br />
-    <button type="button" class="button--start" onclick="start()">Почати</button>
+    <button type="button" class="button--start" id="start-btn">Почати</button>
+
+    <p id="test"></p>
 </div>
 <script src="~/js/problem_script.js"></script>
+<script src="~/js/operations.js"></script>
