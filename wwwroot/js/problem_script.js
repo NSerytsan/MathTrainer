@@ -1,11 +1,13 @@
 ﻿var cb = document.querySelector('#in-order');
 localStorage._cb = cb.checked;
 
+
+
 function start() {
     var p_left = parseInt(document.getElementById("problem-number").value);
     var arg = document.getElementById("argument").value;
     
-
+    
 
     if (cb.checked == false) {
         if (isNaN(p_left)) {
@@ -21,8 +23,9 @@ function start() {
         } else {
             localStorage.pr_left = p_left;
             localStorage.first_value = arg;
-            alert("Починаймо!");
+            //alert("Починаймо!");
             window.open("/Problem", "_top");
+            start_timer();
         }
     }
     else if (isNaN(arg)) {
@@ -33,9 +36,11 @@ function start() {
     }
     else {
         localStorage.first_value = arg;
-        alert("Починаймо по порядку!");
+        //alert("Починаймо по порядку!");
         window.open("/Problem", "_top");
     }
+
+
 }
 
 function check_answer() {
@@ -84,6 +89,7 @@ function next_problem() {
             /*alert("Далі рандомно f");*/
             window.open("/Problem", "_self");
         } else {
+            stop_timer();
             alert("Kінець");
             document.getElementById("btn-next").style.display = "none";
             document.getElementById("btn-home").style.display = "block";

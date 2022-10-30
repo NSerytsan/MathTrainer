@@ -44,3 +44,16 @@ body {
 .button--next{
     width: 100px;
 }
+
+.arg-radio{
+    margin-right: 10px;
+    margin-left: 3px;
+}
+
+.timer-btn{
+    height: 13px;
+    border-radius: 50%;
+    background-color: grey;
+    border: none;
+    margin-right: 5px;
+}
