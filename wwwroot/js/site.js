@@ -1,10 +1,13 @@
 ﻿const timer_el = document.getElementById("timer");
-const start_btn_el = document.getElementById("start-btn");
+const btn_el = document.getElementById("timer_btn");
 
 let seconds = 0;
 let interval = null;
 
-//start_btn_el.addEventListener('click', start_timer);
+btn_el.addEventListener('click', () => {
+    start_timer();
+    btn_el.style.backgroundColor = "red";
+});
 
 function timer() {
     seconds++;

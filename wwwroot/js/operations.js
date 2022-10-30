@@ -86,6 +86,7 @@ function next_problem_m() {
     if (pr_count() > 0) {
         window.open("/ProblemMinus", "_self");
     } else {
+        stop_timer();
         alert("Kінець");
         document.getElementById("btn-next").style.display = "none";
         document.getElementById("btn-home").style.display = "block";

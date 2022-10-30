@@ -89,6 +89,7 @@ function next_problem() {
             /*alert("Далі рандомно f");*/
             window.open("/Problem", "_self");
         } else {
+            stop_timer();
             alert("Kінець");
             document.getElementById("btn-next").style.display = "none";
             document.getElementById("btn-home").style.display = "block";
