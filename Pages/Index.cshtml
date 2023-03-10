@@ -11,10 +11,12 @@
         <label for="argument">Число</label>
         <input type="number" id="argument" min="1"/>
         <div class="operations">
-            <input type="radio" id="plus_radio" value="+" name="operations" checked="true"/>
-            <label for="plus_radio">+</label>
+            <input type="radio" id="plus_radio" value="+" name="operations" checked="checked"/>
+                <label for="plus_radio">+</label>
             <input type="radio" id="minus_radio" value="-" name="operations"/>   
-            <label for="minus_radio">-</label>
+                <label for="minus_radio">-</label>
+            <input type="radio" id="mult_radio" value="*" name="operations" />
+                <label for="minus_radio">×</label>
             
             <p id="output"></p>
         </div>
@@ -56,7 +58,7 @@
     </div>
     </form>
     <br />
-    <button type="button" class="button--start" id="start-btn" onclick="start_timer()">Почати</button>
+    <button type="button" class="button--start" id="start-btn">Почати</button>
 
     <p id="test"></p>
 </div>
